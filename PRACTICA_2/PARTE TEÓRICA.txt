@@ -1,0 +1,99 @@
+PARTE TEÓRICA
+1. PREGUNTAS CONCEPTUALES
+
+a) ¿Qué es el DOM y cómo se relaciona con HTML?
+
+El DOM (Document Object Model) es una representación en forma de árbol de todos los elementos HTML de una página web y permite a JavaScript acceder y manipular el contenido, estructura y estilo de una página de forma dinámica.
+
+b) Explica la diferencia entre:
+
+•document.getElementById() vs document.querySelector().
+document.getElementById() selecciona un elemento por su id. Solo puede devolver un único elemento.
+document.querySelector() selecciona el primer elemento que coincida con un selector CSS (id, clase, etiqueta, etc.).
+
+•textContent vs innerHTML.
+textContent solo inserta texto, sin interpretar HTML.
+innerHTML permite insertar texto con etiquetas HTML, y el navegador las interpreta como contenido HTML.
+
+c) ¿Para qué sirve addEventListener? Proporciona un ejemplo.
+
+addEventListener permite escuchar eventos como (click, submit, input, etc.) y ejecutar funciones cuando ocurren.
+
+Ejemplo:
+
+document.getElementById("boton").addEventListener("click", () => {
+  alert("¡Clic detectado!");
+});
+
+d) ¿Qué métodos del DOM se usan para capturar valores de un formulario?
+
+•document.getElementById("campo").value
+•document.querySelector("selector").value
+
+e) Explica cómo prevenir el envío por defecto de un formulario con JavaScript.
+
+Para evitar que un formulario se envíe y recargue la página por defecto, se usa event.preventDefault();, solo eso.
+
+f) ¿Qué es el "almacenamiento en memoria" y en qué se diferencia de localStorage?
+
+Almacenamiento en memoria significa guardar datos en variables (por ejemplo, en arrays u objetos JavaScript), 
+lo cual se pierde al recargar la página.
+
+localStorage guarda datos de forma persistente en el navegador, incluso si la página se recarga o el navegador se cierra.
+
+2. ANÁLISIS DE CÓDIGO
+
+Dado el siguiente código:
+
+<button id="btn">Haz clic</button>
+<p id="mensaje"></p>
+
+document.getElementById("btn").addEventListener("click", () => {
+  document.getElementById("mensaje").textContent = "¡Botón presionado!";
+});
+
+Preguntas:
+
+¿Qué hace el código?
+
+Cuando se hace clic en el botón este cambia el contenido del <p> con id "mensaje" para que diga “¡Botón presionado!”.
+
+¿Qué pasaría si cambiamos textContent por innerHTML?
+
+No hay mucha diferencia porque no hay etiquetas HTML en el texto, pero si el mensaje tuviera etiquetas, 
+innerHTML las interpretaría como HTML y textContent las mostraría como texto plano.
+
+3. ANÁLISIS DE CÓDIGO
+
+Dado el siguiente formulario:
+
+<form id="form-usuario">
+  <input type="text" id="nombre" placeholder="Nombre">
+  <button type="submit">Guardar</button>
+</form>
+<ul id="lista-usuarios"></ul>
+
+const usuarios = []; // Array para simular persistencia
+
+document.getElementById("form-usuario").addEventListener("submit", (e) => {
+  e.preventDefault(); // ¿Por qué es importante esta línea?
+  const nombre = document.getElementById("nombre").value;
+  usuarios.push(nombre); // Almacena en memoria
+  actualizarListaUsuarios();
+});
+
+function actualizarListaUsuarios() {
+  const lista = document.getElementById("lista-usuarios");
+  lista.innerHTML = usuarios.map(user => `<li>${user}</li>`).join("");
+}
+
+Preguntas:
+
+¿Qué hace el código al enviar el formulario?
+
+Evita el envío normal, captura el nombre ingresado, lo guarda en un array (usuarios) y actualiza la lista visual.
+
+¿Cómo se simula la "persistencia de datos" aquí?
+
+Se usa un array en memoria (usuarios) que se mantiene mientras la página no se recargue.
+

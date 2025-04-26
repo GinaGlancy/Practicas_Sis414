@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuarios</title>
+  <style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0fff4;
+        color: #2f855a;
+        margin: 0;
+        padding: 32px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #276749;
+    }
+
+    form {
+        background-color: #e6fffa;
+        padding: 24px;
+        border-radius: 12px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 4px 10px rgba(0, 128, 0, 0.1);
+    }
+
+    input, button {
+        width: 95%;
+        padding: 12.8px;
+        margin: 8px 0;
+        border: 2px solid #c6f6d5;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    input:focus {
+        border-color: #68d391;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.3);
+    }
+
+    button {
+        background-color: #48bb78;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #38a169;
+    }
+
+    #buscador {
+        max-width: 500px;
+        margin: 16px auto;
+        display: block;
+    }
+
+    #lista_usuarios {
+        list-style: none;
+        padding: 0;
+        max-width: 500px;
+        margin: 16px auto;
+    }
+
+    #lista_usuarios li {
+        background-color: #f0fff4;
+        margin: 8px 0;
+        padding: 12.8px;
+        border: 1px solid #c6f6d5;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #lista_usuarios button {
+        background-color: #e53e3e;
+        color: white;
+        border: none;
+        padding: 6.4px 12.8px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14.4px;
+    }
+
+    #lista_usuarios button:hover {
+        background-color: #c53030;
+    }
+
+    #total_usuarios {
+        text-align: center;
+        margin-top: 16px;
+        font-weight: bold;
+        color: #2f855a;
+    }
+    </style>
+</head>
+<body>
+    <h1>REGISTRO DE USUARIOS</h1>
+
+    <form id="formulario_usuario">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="number" id="edad" placeholder="Edad" required>
+        <center><button type="submit">Registrar</button></center>
+    </form>
+
+    <input type="text" id="buscador" placeholder="Buscar por nombre...">
+
+    <ul id="lista_usuarios"></ul>
+    <p id="total_usuarios">Total: 0</p>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

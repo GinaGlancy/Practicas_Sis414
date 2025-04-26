@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor de Texto Dinámico</title>
+    <style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0fff4;
+        color: #2f855a;
+        margin: 0;
+        padding: 32px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #276749;
+    }
+
+    .contenedor {
+        max-width: 600px;
+        margin: auto;
+        background-color: #e6fffa;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 128, 0, 0.1);
+    }
+
+    textarea {
+        width: 95%;
+        height: 120px;
+        padding: 16px;
+        font-size: 16px;
+        border: 2px solid #c6f6d5;
+        border-radius: 10px;
+        resize: vertical;
+        transition: border 0.3s;
+    }
+
+    textarea:focus {
+        border-color: #68d391;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.3);
+    }
+
+    button {
+        width: 100%;
+        margin-top: 16px;
+        padding: 12.8px;
+        background-color: #48bb78;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background-color: #38a169;
+    }
+
+    #resultado {
+        margin-top: 24px;
+        padding: 16px;
+        background-color: #f0fff4;
+        border: 1px solid #c6f6d5;
+        border-radius: 8px;
+        color: #2c7a7b;
+        font-size: 17.6px;
+        min-height: 50px;
+    }
+
+    #contador {
+        margin-top: 10px;
+        text-align: center;
+        color: #276749;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>EDITOR DE TEXTO DINÁMIICO</h1>
+
+    <div class="contenedor">
+        <textarea id="texto" placeholder="Escribe algo bonito... :3"></textarea>
+        <button id="aplicar">Aplicar</button>
+        <div id="resultado"></div>
+    </div>
+    
+    <p id="contador">Caracteres: 0</p>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
